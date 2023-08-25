@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  padding: 0 2.5%;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+
+#app {
+  text-align: center;
+}
