@@ -1,3 +1,5 @@
+// type aliases
+
 export type Scoreboard = {
   X: number;
   O: number;
