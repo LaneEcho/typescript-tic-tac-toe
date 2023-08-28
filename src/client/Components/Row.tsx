@@ -5,7 +5,7 @@ import { BoardText, RowProps } from '../../types';
 const Row = (props: RowProps) => {
   const { content, row, handleBoxClick } = props;
 
-  const boxes: JSX.Element[] = content.map((box, i) => {
+  const boxes: JSX.Element[] = content.map((box: any, i: any) => {
     return (
       <Box text={box} row={row} column={i} handleBoxClick={handleBoxClick} />
     );

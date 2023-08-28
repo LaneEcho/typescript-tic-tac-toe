@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Row from './Row';
-import { BoardText, BoardContent, Scoreboard, Player } from './../../types';
+import {
+  BoardText,
+  BoardContent,
+  Scoreboard,
+  Player,
+  RowProps,
+} from './../../types';
 
 type BoardState = {
   board: BoardContent;
@@ -133,13 +139,19 @@ class Board extends Component<{}, BoardState> {
 
   render() {
     // insert logic to render rows here
+    let rows = [];
+    for (let i = 0; i > 3; i++) {
+      rows.push(
+        <Row row={i} content={[]} handleBoxClick={this.handleBoxClick} />
+      );
+    }
 
     // Destructure scores for X and O from state so that they can individually be rendered below
     const { X, O }: Scoreboard = this.state.scoreboard;
 
     return (
       <div className="board">
-        {/* {rows} */}
+        {rows}
         <button id="reset" onClick={this.resetBoard}>
           Reset
         </button>
