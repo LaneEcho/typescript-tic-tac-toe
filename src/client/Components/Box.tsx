@@ -1,12 +1,5 @@
 import React from 'react';
-import { BoardText } from '../../types';
-
-type BoxProps = {
-  text: BoardText;
-  row: number;
-  column: number;
-  handleBoxClick(row: number, column: number): void;
-};
+import { BoardText, BoxProps } from '../../types';
 
 const Box = (props: BoxProps) => {
   // does infer some types
