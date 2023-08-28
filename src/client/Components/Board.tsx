@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Row from './Row';
 import {
   BoardText,
@@ -9,8 +9,17 @@ import {
   RowProps,
 } from './../../types';
 
+function Board(props: BoardState) {
+  // not sure if we need this first one or if I should refactor
+  const [board, setBoard] = useState();
+  const [currentPlayer, setCurrentPlayer] = useState('X');
+  const [gameOver, setGameOver] = useState(false);
+  const [message, setMessage] = useState('');
+  const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
+}
+
 // generic typing ensures whatever is typed as input is typed as output
-class Board extends Component<{}, BoardState> {
+class Board2 extends Component<{}, BoardState> {
   constructor(props: any) {
     super(props);
     this.state = {
