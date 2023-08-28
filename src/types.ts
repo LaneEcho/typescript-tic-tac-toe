@@ -11,6 +11,14 @@ export type BoardText = '-' | 'X' | 'O';
 
 export type BoardContent = Array<BoardText>[];
 
+export type BoardState = {
+  board: BoardContent;
+  currentPlayer: Player;
+  gameOver: boolean;
+  message: string;
+  scoreboard: Scoreboard;
+};
+
 export type BoxProps = {
   text: BoardText;
   row: number;

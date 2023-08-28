@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import Row from './Row';
 import {
   BoardText,
+  BoardState,
   BoardContent,
   Scoreboard,
   Player,
   RowProps,
 } from './../../types';
-
-type BoardState = {
-  board: BoardContent;
-  currentPlayer: Player;
-  gameOver: boolean;
-  message: string;
-  scoreboard: Scoreboard;
-};
 
 // generic typing ensures whatever is typed as input is typed as output
 class Board extends Component<{}, BoardState> {
