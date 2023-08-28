@@ -1,12 +1,6 @@
 import React from 'react';
 import Box from './Box';
-import { BoardText } from '../../types';
-
-type RowProps = {
-  row: number;
-  content: BoardText[];
-  handleBoxClick(row: number, column: number): void;
-};
+import { BoardText, RowProps } from '../../types';
 
 const Row = (props: RowProps) => {
   const { content, row, handleBoxClick } = props;

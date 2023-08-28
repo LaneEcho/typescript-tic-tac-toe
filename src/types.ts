@@ -18,6 +18,12 @@ export type BoxProps = {
   handleBoxClick(row: number, column: number): void;
 };
 
+export type RowProps = {
+  row: number;
+  content: BoardText[];
+  handleBoxClick(row: number, column: number): void;
+};
+
 export type ServerError = {
   log: string;
   status?: number;
