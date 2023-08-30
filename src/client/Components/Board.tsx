@@ -16,6 +16,22 @@ function Board(props: BoardState) {
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState('');
   const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
+
+  const { X, O }: Scoreboard = this.state.scoreboard;
+
+  return (
+    <div className="board">
+      {/* {rows} */}
+      <button id="reset" onClick={this.resetBoard}>
+        Reset
+      </button>
+      {/* The && operator here makes it so that the following JSX is only added if the expression is truthy */}
+      {this.state.gameOver && <p>{this.state.message}</p>}
+      <h4>Scoreboard:</h4>
+      <p>X: {X}</p>
+      <p>O: {O} </p>
+    </div>
+  );
 }
 
 // generic typing ensures whatever is typed as input is typed as output
