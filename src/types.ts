@@ -28,6 +28,7 @@ export type BoxProps = {
 
 export type RowProps = {
   row: number;
+  key: number;
   content: BoardText[];
   handleBoxClick(row: number, column: number): void;
 };

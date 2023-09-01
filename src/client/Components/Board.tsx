@@ -34,11 +34,16 @@ function Board(props: any) {
   // object destructuring to assign X and O to variables of the same name
   const { X, O }: Scoreboard = boardState.scoreboard;
 
-  // let's get some rows to show up
-  let rows = [];
-  for (let i = 0; i > 3; i++) {
-    rows.push(<Row row={i} content={[]} handleBoxClick={null} />);
-  }
+  // rows is an array of JSX elements (for now)
+  let rows: JSX.Element[] = [
+    <div className="grid">
+      <Row row={0} content={boardState.board[0]} handleBoxClick={null} />
+      <Row row={1} content={boardState.board[0]} handleBoxClick={null} />
+      <Row row={2} content={boardState.board[0]} handleBoxClick={null} />
+    </div>,
+  ];
+
+  console.log(rows);
 
   return (
     <div className="board">

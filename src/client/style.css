@@ -20,3 +20,7 @@ h1 {
 #app {
   text-align: center;
 }
+
+.grid {
+  padding: 10px;
+}
