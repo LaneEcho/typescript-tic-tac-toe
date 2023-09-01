@@ -21,9 +21,9 @@ export interface BoardState {
 
 export type BoxProps = {
   text: BoardText;
-  row: number;
-  column: number;
-  handleBoxClick(row: number, column: number): void;
+  // row: number;
+  // column: number;
+  // handleBoxClick(row: number, column: number): void;
 };
 
 export type RowProps = {

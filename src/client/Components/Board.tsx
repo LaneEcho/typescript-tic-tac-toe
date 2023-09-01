@@ -23,20 +23,26 @@ const initialBoardState: BoardState = {
 };
 
 function Board(props: any) {
-  // not sure if we need this first one or if I should refactor
   const [boardState, setBoardState] = useState(initialBoardState);
-  console.log('board state,', boardState.scoreboard);
+
   // const [board, setBoard] = useState();
   // const [currentPlayer, setCurrentPlayer] = useState('X');
   // const [gameOver, setGameOver] = useState(false);
   // const [message, setMessage] = useState('');
   // const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
 
+  // object destructuring to assign X and O to variables of the same name
   const { X, O }: Scoreboard = boardState.scoreboard;
+
+  // let's get some rows to show up
+  let rows = [];
+  for (let i = 0; i > 3; i++) {
+    rows.push(<Row row={i} content={[]} handleBoxClick={null} />);
+  }
 
   return (
     <div className="board">
-      {/* {rows} */}
+      {rows}
       <button id="reset" onClick={null}>
         Reset
       </button>
