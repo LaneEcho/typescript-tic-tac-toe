@@ -17,7 +17,7 @@ function Box(props: BoxProps) {
 
   return (
     <button className="box" onClick={changeBox}>
-      {boxText}
+      {props.text}
     </button>
   );
 }

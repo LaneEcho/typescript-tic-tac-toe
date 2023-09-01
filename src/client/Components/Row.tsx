@@ -8,9 +8,9 @@ function Row(props: any) {
 
   return (
     <div className="row">
-      <Box text={props.content} />
-      <Box text={props.content} />
-      <Box text={props.content} />
+      <Box text={props.content[0]} />
+      <Box text={props.content[1]} />
+      <Box text={props.content[2]} />
     </div>
   );
 }
