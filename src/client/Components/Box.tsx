@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BoardText, BoxProps } from '../../types';
 
 function Box(props: BoxProps) {
+  // might want to pass down state from row?
   const [boxText, setBoxText] = useState('-');
 
   function changeBox(): void {
@@ -20,16 +21,5 @@ function Box(props: BoxProps) {
     </button>
   );
 }
-
-// const Box2 = (props: BoxProps) => {
-//   // does infer some types
-//   // const { text, row, column, handleBoxClick } = props;
-
-//   return (
-//     <button className="box" onClick={(): void => handleBoxClick(row, column)}>
-//       {text}
-//     </button>
-//   );
-// };
 
 export default Box;
