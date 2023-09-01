@@ -9,24 +9,39 @@ import {
   RowProps,
 } from './../../types';
 
-function Board(props: BoardState) {
-  // not sure if we need this first one or if I should refactor
-  const [board, setBoard] = useState();
-  const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [gameOver, setGameOver] = useState(false);
-  const [message, setMessage] = useState('');
-  const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
+// initial state of the board
+const initialBoardState: BoardState = {
+  board: [
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+    ['-', '-', '-'],
+  ],
+  currentPlayer: 'X',
+  gameOver: false,
+  message: "It's your turn!",
+  scoreboard: { X: 0, O: 0 },
+};
 
-  const { X, O }: Scoreboard = this.state.scoreboard;
+function Board(props: any) {
+  // not sure if we need this first one or if I should refactor
+  const [boardState, setBoardState] = useState(initialBoardState);
+  console.log('board state,', boardState.scoreboard);
+  // const [board, setBoard] = useState();
+  // const [currentPlayer, setCurrentPlayer] = useState('X');
+  // const [gameOver, setGameOver] = useState(false);
+  // const [message, setMessage] = useState('');
+  // const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
+
+  const { X, O }: Scoreboard = boardState.scoreboard;
 
   return (
     <div className="board">
       {/* {rows} */}
-      <button id="reset" onClick={this.resetBoard}>
+      <button id="reset" onClick={null}>
         Reset
       </button>
       {/* The && operator here makes it so that the following JSX is only added if the expression is truthy */}
-      {this.state.gameOver && <p>{this.state.message}</p>}
+      {/* {this.state.gameOver && <p>{this.state.message}</p>} */}
       <h4>Scoreboard:</h4>
       <p>X: {X}</p>
       <p>O: {O} </p>
