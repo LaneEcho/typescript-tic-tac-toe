@@ -37,9 +37,9 @@ function Board(props: any) {
   // rows is an array of JSX elements (for now)
   let rows: JSX.Element[] = [
     <div className="grid">
-      <Row row={0} content={boardState.board[0]} handleBoxClick={null} />
-      <Row row={1} content={boardState.board[0]} handleBoxClick={null} />
-      <Row row={2} content={boardState.board[0]} handleBoxClick={null} />
+      <Row row={0} handleBoxClick={null} />
+      <Row row={1} handleBoxClick={null} />
+      <Row row={2} handleBoxClick={null} />
     </div>,
   ];
 

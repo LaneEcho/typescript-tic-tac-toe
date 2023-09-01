@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from './Box';
 import { BoardText, RowProps } from '../../types';
 
@@ -8,9 +8,9 @@ function Row(props: any) {
 
   return (
     <div className="row">
-      <Box text={'X'} />
-      <Box text={'X'} />
-      <Box text={'X'} />
+      <Box text={props.content} />
+      <Box text={props.content} />
+      <Box text={props.content} />
     </div>
   );
 }
