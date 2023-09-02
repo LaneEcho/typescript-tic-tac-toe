@@ -22,7 +22,7 @@ const initialBoardState: BoardState = {
   scoreboard: { X: 0, O: 0 },
 };
 
-function Board(props: any) {
+function Board() {
   const [boardState, setBoardState] = useState(initialBoardState);
 
   // const [board, setBoard] = useState();
@@ -33,6 +33,10 @@ function Board(props: any) {
 
   // object destructuring to assign X and O to variables of the same name
   const { X, O }: Scoreboard = boardState.scoreboard;
+
+  // will need a useEffect to check for winner
+
+  // boxClick function to pass down (or should this go in Row?)
 
   return (
     <div className="board">

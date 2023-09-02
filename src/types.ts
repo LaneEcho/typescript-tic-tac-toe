@@ -28,8 +28,8 @@ export type BoxProps = {
 
 export type RowProps = {
   row: number;
-  // content: BoardText[];
-  // handleBoxClick(row: number, column: number): void;
+  content: BoardText[];
+  handleBoxClick(row: number, column: number): void;
 };
 
 export type ServerError = {

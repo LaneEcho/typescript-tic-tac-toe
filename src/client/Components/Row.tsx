@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Box from './Box';
 import { BoardText, RowProps } from '../../types';
 
-function Row(props: any) {
+function Row(props: RowProps) {
   // will need to pass a prop for content and row number
-  //
 
   return (
     <div className="row">
