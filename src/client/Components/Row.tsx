@@ -13,7 +13,7 @@ function Row(props: RowProps) {
         text={props.content[0]}
         row={props.row}
         column={i}
-        handleBoxClick={null}
+        handleBoxClick={props.handleBoxClick}
         key={i}
       />
     );

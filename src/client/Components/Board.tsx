@@ -36,6 +36,15 @@ function Board() {
 
   // will need a useEffect to check for winner
 
+  // will need useEffect to get scores
+
+  // reset board function
+
+  // handleBoxClick
+  function handleBoxClick(row: number, column: number): void {
+    console.log('clicked');
+  }
+
   // iterating to make Rows
   const rows: JSX.Element[] = [];
   for (let i = 0; i < 3; i++) {
