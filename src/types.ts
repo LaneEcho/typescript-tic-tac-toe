@@ -23,13 +23,13 @@ export type BoxProps = {
   text: BoardText;
   row: number;
   column: number;
-  handleBoxClick(): void;
+  handleBoxClick(event: React.MouseEvent<HTMLButtonElement>): void;
 };
 
 export type RowProps = {
   row: number;
   content: BoardText[];
-  handleBoxClick(): void;
+  handleBoxClick(event: React.MouseEvent<HTMLButtonElement>): void;
 };
 
 export type ServerError = {

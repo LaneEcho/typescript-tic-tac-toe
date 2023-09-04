@@ -41,9 +41,17 @@ function Board() {
   // reset board function
 
   // handleBoxClick
-  function handleBoxClick(row: number, column: number): void {
-    console.log('clicked');
-  }
+  // going to have to know which row/ column was clicked
+  // setBoardState board property to new value
+  // console.log to check
+  const handleBoxClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    // Access the button's properties using event.currentTarget
+    const button = event.currentTarget;
+
+    // You can access various properties of the button element
+    console.log('Button Text:', button.innerText);
+    console.log('Button ID:', button.id);
+  };
 
   // iterating to make Rows
   const rows: JSX.Element[] = [];
@@ -52,7 +60,7 @@ function Board() {
       <Row
         row={i}
         content={boardState.board[i]}
-        handleBoxClick={null}
+        handleBoxClick={handleBoxClick}
         key={i}
       />
     );
