@@ -40,7 +40,12 @@ function Board() {
   const rows: JSX.Element[] = [];
   for (let i = 0; i < 3; i++) {
     rows.push(
-      <Row row={i} content={boardState.board[i]} handleBoxClick={null} />
+      <Row
+        row={i}
+        content={boardState.board[i]}
+        handleBoxClick={null}
+        key={i}
+      />
     );
   }
 

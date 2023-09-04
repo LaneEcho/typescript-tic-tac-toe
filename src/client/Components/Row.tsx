@@ -14,6 +14,7 @@ function Row(props: RowProps) {
         row={props.row}
         column={i}
         handleBoxClick={null}
+        key={i}
       />
     );
   }
