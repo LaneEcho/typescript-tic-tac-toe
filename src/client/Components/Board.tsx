@@ -36,15 +36,17 @@ function Board() {
 
   // will need a useEffect to check for winner
 
-  // boxClick function to pass down (or should this go in Row?)
+  // iterating to make Rows
+  const rows: JSX.Element[] = [];
+  for (let i = 0; i < 3; i++) {
+    rows.push(
+      <Row row={i} content={boardState.board[i]} handleBoxClick={null} />
+    );
+  }
 
   return (
     <div className="board">
-      <div className="grid">
-        <Row row={0} content={boardState.board[0]} handleBoxClick={null} />
-        <Row row={1} content={boardState.board[1]} handleBoxClick={null} />
-        <Row row={2} content={boardState.board[2]} handleBoxClick={null} />
-      </div>
+      <div className="grid">{rows}</div>
       <button id="reset" onClick={null}>
         Reset
       </button>

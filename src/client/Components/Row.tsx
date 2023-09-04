@@ -5,13 +5,20 @@ import { BoardText, RowProps } from '../../types';
 function Row(props: RowProps) {
   // will need to pass a prop for content and row number
 
-  return (
-    <div className="row">
-      <Box text={props.content[0]} />
-      <Box text={props.content[1]} />
-      <Box text={props.content[2]} />
-    </div>
-  );
+  // doing boxes iteratively
+  const boxes: JSX.Element[] = [];
+  for (let i = 0; i < 3; i++) {
+    boxes.push(
+      <Box
+        text={props.content[0]}
+        row={props.row}
+        column={i}
+        handleBoxClick={null}
+      />
+    );
+  }
+
+  return <div className="row">{boxes}</div>;
 }
 
 // const Row2 = (props: RowProps) => {
