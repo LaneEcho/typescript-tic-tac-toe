@@ -10,7 +10,7 @@ function Row(props: RowProps) {
   for (let i = 0; i < 3; i++) {
     boxes.push(
       <Box
-        text={props.content[0]}
+        text={props.content[i]}
         row={props.row}
         column={i}
         handleBoxClick={props.handleBoxClick}

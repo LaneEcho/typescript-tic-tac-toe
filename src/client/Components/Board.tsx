@@ -12,7 +12,7 @@ import {
 // initial state of the board - is this relevant with the hook setup?
 const initialBoardState: BoardState = {
   board: [
-    ['-', '-', '-'],
+    ['-', '-', 'X'],
     ['-', '-', '-'],
     ['-', '-', '-'],
   ],
@@ -25,12 +25,6 @@ const initialBoardState: BoardState = {
 function Board() {
   const [boardState, setBoardState] = useState(initialBoardState);
 
-  // const [board, setBoard] = useState();
-  // const [currentPlayer, setCurrentPlayer] = useState('X');
-  // const [gameOver, setGameOver] = useState(false);
-  // const [message, setMessage] = useState('');
-  // const [scoreboard, setScoreboard] = useState({ X: 0, O: 0 });
-
   // object destructuring to assign X and O to variables of the same name
   const { X, O }: Scoreboard = boardState.scoreboard;
 
@@ -41,16 +35,12 @@ function Board() {
   // reset board function
 
   // handleBoxClick
-  // going to have to know which row/ column was clicked
-  // setBoardState board property to new value
-  // console.log to check
   const handleBoxClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     // Access the button's properties using event.currentTarget
-    const button = event.currentTarget;
-
-    // You can access various properties of the button element
-    console.log('Button Text:', button.innerText);
-    console.log('Button ID:', button.id);
+    const buttonText = event.currentTarget;
+    // const row: number = props.row;
+    // const column: number = props.column;
+    console.log('Button Text:', buttonText);
   };
 
   // iterating to make Rows
@@ -72,6 +62,7 @@ function Board() {
       <button id="reset" onClick={null}>
         Reset
       </button>
+
       {/* The && operator here makes it so that the following JSX is only added if the expression is truthy */}
       {/* {this.state.gameOver && <p>{this.state.message}</p>} */}
       <h4>Scoreboard:</h4>
