@@ -25,28 +25,54 @@ const initialBoardState: BoardState = {
 function Board() {
   const [boardState, setBoardState] = useState(initialBoardState);
 
-  // object destructuring to assign X and O to variables of the same name
+  // object destructuring to assign X and O to variables of the same name to use later
   const { X, O }: Scoreboard = boardState.scoreboard;
 
   // will need a useEffect to check for winner
 
   // will need useEffect to get scores
 
-  // reset board function
+  /**
+   * @method resetBoard
+   * @description - sets to board object to be all '-',
+   *  and prepares board for new game
+   */
 
-  // handleBoxClick
+  function resetBoard(): void {
+    // make copy of state
+    const updatedState: BoardState = {
+      ...boardState,
+      board: [
+        ['-', '-', '-'],
+        ['-', '-', '-'],
+        ['-', '-', '-'],
+      ],
+      currentPlayer: 'X',
+      // gameOver: false,
+      // message: "It's your turn!",
+      // scoreboard: { X: 0, O: 0 },
+    };
+    // update the values
+    setBoardState(updatedState);
+  }
+
+  /**
+   * @method handleBoxClick
+   * @description - updates text value inside each box and updates current player
+   */
+
   const handleBoxClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    // accessing button properties which will be used to update state
+    // accessing button properties which will be used to update state (and turning them to number type)
     const row: number = Number(event.currentTarget.dataset.row);
     const column: number = Number(event.currentTarget.dataset.column);
-    console.log('current player', boardState.currentPlayer);
+
     // and updating the state
     if (boardState.board[row][column] === '-') {
       // new copy of board array
-      const updatedBoard = [...initialBoardState.board];
+      const updatedBoard = [...boardState.board];
       // changing value to whatever currentPlayer is
       updatedBoard[row][column] = boardState.currentPlayer;
-      // update the currentPlayer to whoever's turn is next
+      // update the currentPlayer to opposite value
       const updatedCurrentPlayer = boardState.currentPlayer === 'X' ? 'O' : 'X';
       // new updated state object
       const updatedState: BoardState = {
@@ -75,8 +101,8 @@ function Board() {
   return (
     <div className="board">
       <div className="grid">{rows}</div>
-      <button id="reset" onClick={null}>
-        Reset
+      <button id="reset" onClick={resetBoard}>
+        Reset Board
       </button>
 
       {/* The && operator here makes it so that the following JSX is only added if the expression is truthy */}
@@ -113,32 +139,6 @@ function Board() {
 
 //   componentDidUpdate() {
 //     this.checkForWinner();
-//   }
-
-//   /**
-//    * @method newBoard
-//    * @description - returns a blank BoardContent array,
-//    *  for the start of a new game
-//    */
-//   newBoard(): BoardContent {
-//     return [
-//       ['-', '-', '-'],
-//       ['-', '-', '-'],
-//       ['-', '-', '-'],
-//     ];
-//   }
-
-//   /**
-//    * @method resetBoard
-//    * @description - sets to board object to be all '-',
-//    *  and sets gameOver and message to default state
-//    */
-//   resetBoard(): void {
-//     this.setState({
-//       gameOver: false,
-//       board: this.newBoard(),
-//       message: '',
-//     });
 //   }
 
 //   /**
