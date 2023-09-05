@@ -12,7 +12,7 @@ import {
 // initial state of the board - is this relevant with the hook setup?
 const initialBoardState: BoardState = {
   board: [
-    ['-', '-', 'X'],
+    ['-', '-', '-'],
     ['-', '-', '-'],
     ['-', '-', '-'],
   ],
@@ -36,11 +36,24 @@ function Board() {
 
   // handleBoxClick
   const handleBoxClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    // Accessing button properties which will be used to update state
+    // accessing button properties which will be used to update state
     const row: number = Number(event.currentTarget.dataset.row);
     const column: number = Number(event.currentTarget.dataset.column);
-    console.log('column', column);
-    console.log('row', row);
+    // and updating the state
+    if (boardState.board[row][column] === '-') {
+      // new copy of board array
+      const updatedBoard = [...initialBoardState.board];
+      // changing value to whatever currentPlayer is
+      updatedBoard[row][column] = initialBoardState.currentPlayer;
+      // new updated state object
+      const updatedState: BoardState = {
+        ...boardState,
+        board: updatedBoard,
+      };
+      // actually update the state with the new board state
+      setBoardState(updatedState);
+      console.log(boardState.board);
+    }
   };
 
   // iterating to make Rows
