@@ -36,11 +36,11 @@ function Board() {
 
   // handleBoxClick
   const handleBoxClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    // Access the button's properties using event.currentTarget
-    const buttonText = event.currentTarget;
-    // const row: number = props.row;
-    // const column: number = props.column;
-    console.log('Button Text:', buttonText);
+    // Accessing button properties which will be used to update state
+    const row: number = Number(event.currentTarget.dataset.row);
+    const column: number = Number(event.currentTarget.dataset.column);
+    console.log('column', column);
+    console.log('row', row);
   };
 
   // iterating to make Rows
