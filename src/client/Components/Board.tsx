@@ -39,21 +39,24 @@ function Board() {
     // accessing button properties which will be used to update state
     const row: number = Number(event.currentTarget.dataset.row);
     const column: number = Number(event.currentTarget.dataset.column);
+    console.log('current player', boardState.currentPlayer);
     // and updating the state
     if (boardState.board[row][column] === '-') {
       // new copy of board array
       const updatedBoard = [...initialBoardState.board];
       // changing value to whatever currentPlayer is
-      updatedBoard[row][column] = initialBoardState.currentPlayer;
+      updatedBoard[row][column] = boardState.currentPlayer;
+      // update the currentPlayer to whoever's turn is next
+      const updatedCurrentPlayer = boardState.currentPlayer === 'X' ? 'O' : 'X';
       // new updated state object
       const updatedState: BoardState = {
         ...boardState,
         board: updatedBoard,
+        currentPlayer: updatedCurrentPlayer,
       };
       // actually update the state with the new board state
       setBoardState(updatedState);
-      console.log(boardState.board);
-    }
+    } else alert("Choose a different box, this one's taken!");
   };
 
   // iterating to make Rows
