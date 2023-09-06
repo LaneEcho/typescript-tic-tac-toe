@@ -28,8 +28,6 @@ function Board() {
   // object destructuring to assign X and O to variables of the same name to use later
   const { X, O }: Scoreboard = boardState.scoreboard;
 
-  // will need a useEffect to check for winner
-
   // will need useEffect to get scores
 
   /**
@@ -48,8 +46,8 @@ function Board() {
         ['-', '-', '-'],
       ],
       currentPlayer: 'X',
-      // gameOver: false,
-      // message: "It's your turn!",
+      gameOver: false,
+      message: "It's your turn!",
       // scoreboard: { X: 0, O: 0 },
     };
     // update the values
@@ -93,6 +91,7 @@ function Board() {
 
   function checkForWinner(): void {
     const board = boardState.board;
+
     // helper function to check if board is filled
     const spacesLeft = (): boolean => {
       for (let box of board) {
@@ -103,6 +102,7 @@ function Board() {
 
     console.log(spacesLeft());
 
+    // if the game is not over - check win conditions
     if (!boardState.gameOver) {
       // win conditions: matching rows, columns, or diagonals, that are not empty('-')
       if (
@@ -134,18 +134,24 @@ function Board() {
         // winner is the person who's turn was previous
         const winner: Player = boardState.currentPlayer === 'X' ? 'O' : 'X';
         console.log('winner', winner);
-        // this.setState({
-        //   gameOver: true,
-        //   message: `Player ${winner} wins!`,
-        // });
+
+        // update state
+        const updatedState: BoardState = {
+          ...boardState,
+          gameOver: true,
+          message: `Player ${winner} wins!`,
+        };
+        setBoardState(updatedState);
+
         // this.getScores('POST', JSON.stringify({ winner }));
-        // draw condition: no '-' remaining in board without above win condition triggering
-        // } else if (!spacesLeft()) {
-        //   this.setState({
-        //     gameOver: true,
-        //     message: 'Draw!',
-        //   });
-        // }
+      } else if (!spacesLeft()) {
+        // win conditions not met, board is full - update state
+        const updatedState: BoardState = {
+          ...boardState,
+          gameOver: true,
+          message: `It's a draw!`,
+        };
+        setBoardState(updatedState);
       }
     }
   }
@@ -173,9 +179,7 @@ function Board() {
       <button id="reset" onClick={resetBoard}>
         Reset Board
       </button>
-
-      {/* The && operator here makes it so that the following JSX is only added if the expression is truthy */}
-      {/* {this.state.gameOver && <p>{this.state.message}</p>} */}
+      {boardState.gameOver && <p>{boardState.message}</p>}
       <h4>Scoreboard:</h4>
       <p>X: {X}</p>
       <p>O: {O} </p>
