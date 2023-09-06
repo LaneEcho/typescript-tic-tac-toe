@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Row from './Row';
 import {
   BoardText,
@@ -100,8 +100,6 @@ function Board() {
       return false;
     };
 
-    console.log(spacesLeft());
-
     // if the game is not over - check win conditions
     if (!boardState.gameOver) {
       // win conditions: matching rows, columns, or diagonals, that are not empty('-')
@@ -133,7 +131,6 @@ function Board() {
       ) {
         // winner is the person who's turn was previous
         const winner: Player = boardState.currentPlayer === 'X' ? 'O' : 'X';
-        console.log('winner', winner);
 
         // update state
         const updatedState: BoardState = {
@@ -143,6 +140,7 @@ function Board() {
         };
         setBoardState(updatedState);
 
+        // update scores
         // this.getScores('POST', JSON.stringify({ winner }));
       } else if (!spacesLeft()) {
         // win conditions not met, board is full - update state
@@ -171,7 +169,10 @@ function Board() {
     );
   }
 
-  checkForWinner();
+  // check for winner when boardState changes
+  useEffect(() => {
+    checkForWinner();
+  }, [boardState]);
 
   return (
     <div className="board">
