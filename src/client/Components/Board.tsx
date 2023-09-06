@@ -91,64 +91,64 @@ function Board() {
    *  if so, ends the game and updates the message to declare winner
    */
 
-  //   checkForWinner(): void {
-  //     const { board, gameOver, currentPlayer } = this.state;
+  function checkForWinner(): void {
+    const board = boardState.board;
+    // helper function to check if board is filled
+    const spacesLeft = (): boolean => {
+      for (let box of board) {
+        if (box.includes('-')) return true;
+      }
+      return false;
+    };
 
-  //     // helper function to check if board is filled
-  //     const spacesLeft = (): boolean => {
-  //       for (let i of board) {
-  //         if (i.includes('-')) return true;
-  //       }
-  //       return false;
-  //     };
+    console.log(spacesLeft());
 
-  //     if (!gameOver) {
-  //       // win conditions: matching rows, columns, or diagonals, that are not empty('-')
-  //       if (
-  //         (board[0][0] === board[0][1] &&
-  //           board[0][1] === board[0][2] &&
-  //           board[0][2] !== '-') ||
-  //         (board[1][0] === board[1][1] &&
-  //           board[1][1] === board[1][2] &&
-  //           board[1][2] !== '-') ||
-  //         (board[2][0] === board[2][1] &&
-  //           board[2][1] === board[2][2] &&
-  //           board[2][2] !== '-') ||
-  //         (board[0][0] === board[1][0] &&
-  //           board[1][0] === board[2][0] &&
-  //           board[2][0] !== '-') ||
-  //         (board[0][1] === board[1][1] &&
-  //           board[1][1] === board[2][1] &&
-  //           board[2][1] !== '-') ||
-  //         (board[0][2] === board[1][2] &&
-  //           board[1][2] === board[2][2] &&
-  //           board[2][2] !== '-') ||
-  //         (board[0][0] === board[1][1] &&
-  //           board[1][1] === board[2][2] &&
-  //           board[2][2] !== '-') ||
-  //         (board[2][0] === board[1][1] &&
-  //           board[1][1] === board[0][2] &&
-  //           board[0][2] !== '-')
-  //       ) {
-  //         // winner is the person who's turn was previous
-  //         const winner: Player = currentPlayer === 'X' ? 'O' : 'X';
-
-  //         this.setState({
-  //           gameOver: true,
-  //           message: `Player ${winner} wins!`,
-  //         });
-
-  //         this.getScores('POST', JSON.stringify({ winner }));
-
-  //         // draw condition: no '-' remaining in board without above win condition triggering
-  //       } else if (!spacesLeft()) {
-  //         this.setState({
-  //           gameOver: true,
-  //           message: 'Draw!',
-  //         });
-  //       }
-  //     }
-  //   }
+    if (!boardState.gameOver) {
+      // win conditions: matching rows, columns, or diagonals, that are not empty('-')
+      if (
+        (board[0][0] === board[0][1] &&
+          board[0][1] === board[0][2] &&
+          board[0][2] !== '-') ||
+        (board[1][0] === board[1][1] &&
+          board[1][1] === board[1][2] &&
+          board[1][2] !== '-') ||
+        (board[2][0] === board[2][1] &&
+          board[2][1] === board[2][2] &&
+          board[2][2] !== '-') ||
+        (board[0][0] === board[1][0] &&
+          board[1][0] === board[2][0] &&
+          board[2][0] !== '-') ||
+        (board[0][1] === board[1][1] &&
+          board[1][1] === board[2][1] &&
+          board[2][1] !== '-') ||
+        (board[0][2] === board[1][2] &&
+          board[1][2] === board[2][2] &&
+          board[2][2] !== '-') ||
+        (board[0][0] === board[1][1] &&
+          board[1][1] === board[2][2] &&
+          board[2][2] !== '-') ||
+        (board[2][0] === board[1][1] &&
+          board[1][1] === board[0][2] &&
+          board[0][2] !== '-')
+      ) {
+        // winner is the person who's turn was previous
+        const winner: Player = boardState.currentPlayer === 'X' ? 'O' : 'X';
+        console.log('winner', winner);
+        // this.setState({
+        //   gameOver: true,
+        //   message: `Player ${winner} wins!`,
+        // });
+        // this.getScores('POST', JSON.stringify({ winner }));
+        // draw condition: no '-' remaining in board without above win condition triggering
+        // } else if (!spacesLeft()) {
+        //   this.setState({
+        //     gameOver: true,
+        //     message: 'Draw!',
+        //   });
+        // }
+      }
+    }
+  }
 
   //   getScores(method?: string, winner?: string) {}
 
@@ -164,6 +164,8 @@ function Board() {
       />
     );
   }
+
+  checkForWinner();
 
   return (
     <div className="board">
