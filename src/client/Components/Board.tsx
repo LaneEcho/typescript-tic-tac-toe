@@ -154,7 +154,7 @@ function Board() {
     }
   }
 
-  //   getScores(method?: string, winner?: string) {}
+  function getScores(method?: string, winner?: string) {}
 
   // iterating to make Rows
   const rows: JSX.Element[] = [];
