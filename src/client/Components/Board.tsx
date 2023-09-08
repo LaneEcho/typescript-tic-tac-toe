@@ -154,7 +154,30 @@ function Board() {
     }
   }
 
-  function getScores(method?: string, winner?: string) {}
+  async function getScores(method?: string, winner?: string) {
+    // get score on load - get
+    // or update when player wins - post
+    try {
+      let res = await fetch('/api', {
+        method: method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          winner: winner,
+        }),
+      });
+
+      let resJson = await res.json(); // do we need this line?
+      if (res.status === 201) {
+        // update scores in state
+        console.log('it fetched');
+      } else {
+        // update message in state
+      }
+    } catch (err) {
+      console.log('Error in getScores ', err);
+      // optional update message in state
+    }
+  }
 
   // iterating to make Rows
   const rows: JSX.Element[] = [];
