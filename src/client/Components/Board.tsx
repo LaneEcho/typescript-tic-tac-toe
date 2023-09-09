@@ -24,6 +24,7 @@ const initialBoardState: BoardState = {
 
 function Board() {
   const [boardState, setBoardState] = useState(initialBoardState);
+  const [loading, setLoading] = useState(false);
 
   // object destructuring to assign X and O to variables of the same name to use later
   const { X, O }: Scoreboard = boardState.scoreboard;
@@ -155,29 +156,33 @@ function Board() {
   }
 
   async function getScores(method?: string, winner?: string) {
-    // get score on load - get
-    // or update when player wins - post
+    setLoading(true);
+
     try {
       let res = await fetch('/api', {
         method: method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          winner: winner,
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify({
+        //   winner: winner,
+        // }),
       });
 
-      let resJson = await res.json(); // do we need this line?
+      // 204 status "No Content" for delete requests
       if (res.status === 201) {
-        // update scores in state
-        console.log('it fetched');
-      } else {
-        // update message in state
+        console.log('getScores');
+        // could update message in state
       }
     } catch (err) {
-      console.log('Error in getScores ', err);
-      // optional update message in state
+      console.log(err);
+      // could update message in state
     }
+
+    setLoading(false);
   }
+
+  // getScores('GET');
 
   // iterating to make Rows
   const rows: JSX.Element[] = [];
