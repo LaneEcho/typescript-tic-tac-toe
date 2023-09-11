@@ -9,7 +9,7 @@ import {
   RowProps,
 } from './../../types';
 
-// initial state of the board - is this relevant with the hook setup?
+// initial state of the board
 const initialBoardState: BoardState = {
   board: [
     ['-', '-', '-'],

@@ -1,15 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import fs from 'fs';
 import path from 'path';
-import { Player, Scoreboard } from '../types';
-import { RequestHandler } from 'webpack-dev-server';
+import { PlayerController, Player, Scoreboard } from '../types';
 
-interface playerController {
-  getScores: RequestHandler;
-}
+export const playerController: PlayerController = {
+  getScores: async (req: Request, res: Response, next: NextFunction) => {},
 
-export const playerController = {
-  getScores: () => {},
-
-  updateScores: () => {},
+  updateScores: async (req: Request, res: Response, next: NextFunction) => {},
 };

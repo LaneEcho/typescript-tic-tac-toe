@@ -1,3 +1,5 @@
+import { RequestHandler } from 'webpack-dev-server';
+
 export type Scoreboard = {
   X: number;
   O: number;
@@ -37,3 +39,8 @@ export type ServerError = {
   status?: number;
   message: { err: string };
 };
+
+export interface PlayerController {
+  getScores: RequestHandler;
+  updateScores: RequestHandler;
+}
