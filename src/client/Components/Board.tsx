@@ -155,35 +155,6 @@ function Board() {
     }
   }
 
-  async function getScores(method?: string, winner?: string) {
-    setLoading(true);
-
-    try {
-      let res = await fetch('/api', {
-        method: method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // body: JSON.stringify({
-        //   winner: winner,
-        // }),
-      });
-
-      // 204 status "No Content" for delete requests
-      if (res.status === 201) {
-        console.log('getScores');
-        // could update message in state
-      }
-    } catch (err) {
-      console.log(err);
-      // could update message in state
-    }
-
-    setLoading(false);
-  }
-
-  // getScores('GET');
-
   // iterating to make Rows
   const rows: JSX.Element[] = [];
   for (let i = 0; i < 3; i++) {
@@ -209,9 +180,9 @@ function Board() {
         Reset Board
       </button>
       {boardState.gameOver && <p>{boardState.message}</p>}
-      <h4>Scoreboard:</h4>
+      {/* <h4>Scoreboard:</h4>
       <p>X: {X}</p>
-      <p>O: {O} </p>
+      <p>O: {O} </p> */}
     </div>
   );
 }

@@ -14,6 +14,7 @@ app.use(express.json());
 app.get('/api', playerController.getScores, (req, res, next) =>
   res.json(res.locals.scores)
 );
+
 app.post('/api', playerController.updateScores, (req, res, next) =>
   res.json(res.locals.scores)
 );
