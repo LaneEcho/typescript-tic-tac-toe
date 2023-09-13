@@ -2,15 +2,9 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-}
-
-/* h1 {
-  color: blueviolet;
-  font-family: Roboto;
-} */
-
-.container {
-  padding: 0 2.5%;
+  display: flex inline-block;
+  flex-direction: column;
+  align-items: center;
 }
 
 .box {
@@ -18,10 +12,9 @@ body {
   width: 100px;
 }
 
-#app {
-  text-align: center;
-}
-
 .grid {
   padding: 10px;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
