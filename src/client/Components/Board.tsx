@@ -9,6 +9,8 @@ import {
   RowProps,
 } from './../../types';
 
+import Button from '@mui/material/Button';
+
 // initial state of the board
 const initialBoardState: BoardState = {
   board: [
@@ -174,9 +176,9 @@ function Board() {
   return (
     <div className="board">
       <div className="grid">{rows}</div>
-      <button id="reset" onClick={resetBoard}>
+      <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
         Reset Board
-      </button>
+      </Button>
       {boardState.gameOver && <p>{boardState.message}</p>}
       {/* <h4>Scoreboard:</h4>
       <p>X: {X}</p>
