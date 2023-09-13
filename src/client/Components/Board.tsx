@@ -203,7 +203,12 @@ function Board() {
         </Alert>
       )}
       <div className="grid">{rows}</div>
-      <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
+      <Button
+        variant="outlined"
+        size="large"
+        className="resetButton"
+        onClick={resetBoard}
+      >
         Reset Board
       </Button>
       {/* <h4>Scoreboard:</h4>
