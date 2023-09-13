@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
+import Box from '@mui/material/Box';
 
 // initial state of the board
 const initialBoardState: BoardState = {
@@ -180,7 +181,6 @@ function Board() {
 
   return (
     <div className="board">
-      <div className="grid">{rows}</div>
       {boardState.gameOver && (
         <Alert
           variant="filled"
@@ -202,6 +202,7 @@ function Board() {
           {boardState.message}
         </Alert>
       )}
+      <div className="grid">{rows}</div>
       <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
         Reset Board
       </Button>
