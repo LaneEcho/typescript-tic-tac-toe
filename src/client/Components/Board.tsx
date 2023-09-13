@@ -10,6 +10,8 @@ import {
 } from './../../types';
 
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 // initial state of the board
 const initialBoardState: BoardState = {
@@ -179,7 +181,15 @@ function Board() {
       <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
         Reset Board
       </Button>
-      {boardState.gameOver && <p>{boardState.message}</p>}
+      {boardState.gameOver && (
+        <Alert
+          iconMapping={{
+            success: <ThumbUpIcon fontSize="inherit" />,
+          }}
+        >
+          {boardState.message}
+        </Alert>
+      )}
       {/* <h4>Scoreboard:</h4>
       <p>X: {X}</p>
       <p>O: {O} </p> */}
