@@ -11,7 +11,8 @@ import {
 
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
 
 // initial state of the board
 const initialBoardState: BoardState = {
@@ -22,7 +23,7 @@ const initialBoardState: BoardState = {
   ],
   currentPlayer: 'X',
   gameOver: false,
-  message: "It's your turn!",
+  message: 'Start us off, player X!',
   scoreboard: { X: 0, O: 0 },
 };
 
@@ -75,11 +76,13 @@ function Board() {
       updatedBoard[row][column] = boardState.currentPlayer;
       // update the currentPlayer to opposite value
       const updatedCurrentPlayer = boardState.currentPlayer === 'X' ? 'O' : 'X';
+      const updatedMessage = `It's your turn, player ${updatedCurrentPlayer}!`;
       // new updated state object
       const updatedState: BoardState = {
         ...boardState,
         board: updatedBoard,
         currentPlayer: updatedCurrentPlayer,
+        message: updatedMessage,
       };
       // actually update the state with the new board state
       setBoardState(updatedState);
@@ -178,18 +181,30 @@ function Board() {
   return (
     <div className="board">
       <div className="grid">{rows}</div>
-      <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
-        Reset Board
-      </Button>
       {boardState.gameOver && (
         <Alert
+          variant="filled"
           iconMapping={{
-            success: <ThumbUpIcon fontSize="inherit" />,
+            success: <EmojiEventsIcon fontSize="inherit" />,
           }}
         >
           {boardState.message}
         </Alert>
       )}
+      {!boardState.gameOver && (
+        <Alert
+          variant="filled"
+          severity="info"
+          iconMapping={{
+            info: <WavingHandIcon fontSize="inherit" />,
+          }}
+        >
+          {boardState.message}
+        </Alert>
+      )}
+      <Button variant="outlined" size="large" id="reset" onClick={resetBoard}>
+        Reset Board
+      </Button>
       {/* <h4>Scoreboard:</h4>
       <p>X: {X}</p>
       <p>O: {O} </p> */}
