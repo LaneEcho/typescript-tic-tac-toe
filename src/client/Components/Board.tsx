@@ -204,7 +204,7 @@ function Board() {
       )}
       <div className="grid">{rows}</div>
       <Button
-        variant="outlined"
+        variant="contained"
         size="large"
         className="resetButton"
         onClick={resetBoard}
