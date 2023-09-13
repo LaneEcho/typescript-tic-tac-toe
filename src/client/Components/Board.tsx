@@ -29,8 +29,6 @@ function Board() {
   // object destructuring to assign X and O to variables of the same name to use later
   const { X, O }: Scoreboard = boardState.scoreboard;
 
-  // will need useEffect to get scores
-
   /**
    * @method resetBoard
    * @description - sets to board object to be all '-',

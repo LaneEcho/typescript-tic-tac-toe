@@ -7,7 +7,7 @@ export type Scoreboard = {
 
 export type Player = 'X' | 'O';
 
-export type BoardText = '-' | 'X' | 'O';
+export type BoardText = '-' | Player;
 
 // array that can contain only strings of '-'  'X'  'O';
 export type BoardContent = Array<BoardText>[];
