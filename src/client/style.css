@@ -1,10 +1,12 @@
 body {
-  margin: 0;
+  margin: auto 0;
   display: flex;
   justify-content: center;
   display: flex inline-block;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .grid {

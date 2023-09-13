@@ -11,6 +11,7 @@ function Box(props: BoxProps) {
       onClick={props.handleBoxClick}
       data-row={props.row}
       data-column={props.column}
+      style={{ fontSize: '75px' }}
     >
       {props.text}
     </Button>

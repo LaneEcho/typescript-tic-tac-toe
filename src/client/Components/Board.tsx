@@ -187,6 +187,7 @@ function Board() {
           iconMapping={{
             success: <EmojiEventsIcon fontSize="inherit" />,
           }}
+          style={{ justifyContent: 'center' }}
         >
           {boardState.message}
         </Alert>
@@ -198,6 +199,7 @@ function Board() {
           iconMapping={{
             info: <WavingHandIcon fontSize="inherit" />,
           }}
+          style={{ justifyContent: 'center' }}
         >
           {boardState.message}
         </Alert>
