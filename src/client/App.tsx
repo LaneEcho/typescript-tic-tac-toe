@@ -35,14 +35,19 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline /> {/* Normalize CSS */}
-      <div>
+      <div className="app">
         <Typography variant="h1" color="primary">
           Tic-Tac-Toe
         </Typography>
-        <Button onClick={toggleTheme} variant="outlined">
-          Toggle {darkMode ? 'Light' : 'Dark'} Mode
-        </Button>
         <Board />
+        <Button
+          onClick={toggleTheme}
+          variant="outlined"
+          style={{ marginTop: '10px' }}
+          size="small"
+        >
+          {darkMode ? 'Light' : 'Dark'} Mode
+        </Button>
       </div>
     </ThemeProvider>
   );
