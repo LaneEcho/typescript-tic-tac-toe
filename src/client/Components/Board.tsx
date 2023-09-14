@@ -13,7 +13,6 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
-import Box from '@mui/material/Box';
 
 // initial state of the board
 const initialBoardState: BoardState = {
