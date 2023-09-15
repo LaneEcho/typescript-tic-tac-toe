@@ -39,7 +39,11 @@ function App() {
         <Typography
           variant="h1"
           color="primary"
-          style={{ fontSize: '5rem', marginBottom: '10px' }}
+          style={{
+            fontSize: '5rem',
+            marginBottom: '10px',
+            textAlign: 'center',
+          }}
         >
           Tic-Tac-Toe
         </Typography>
