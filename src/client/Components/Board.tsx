@@ -198,7 +198,7 @@ function Board() {
           iconMapping={{
             info: <WavingHandIcon fontSize="inherit" />,
           }}
-          style={{ justifyContent: 'center' }}
+          style={{ justifyContent: 'center', width: '100%' }}
         >
           {boardState.message}
         </Alert>
