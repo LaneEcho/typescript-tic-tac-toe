@@ -36,7 +36,11 @@ function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline /> {/* Normalize CSS */}
       <div className="app">
-        <Typography variant="h1" color="primary">
+        <Typography
+          variant="h1"
+          color="primary"
+          style={{ fontSize: '5rem', marginBottom: '10px' }}
+        >
           Tic-Tac-Toe
         </Typography>
         <Board />
