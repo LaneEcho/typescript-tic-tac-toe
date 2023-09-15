@@ -49,6 +49,7 @@ function App() {
         </Typography>
         <Board />
         <Button
+          className="toggleButton"
           onClick={toggleTheme}
           variant="outlined"
           style={{ marginTop: '10px' }}
