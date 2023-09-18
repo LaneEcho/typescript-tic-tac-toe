@@ -25,12 +25,14 @@ export type BoxProps = {
   text: BoardText;
   row: number;
   column: number;
+  gameOver: boolean;
   handleBoxClick(event: React.MouseEvent<HTMLButtonElement>): void;
 };
 
 export type RowProps = {
   row: number;
   content: BoardText[];
+  gameOver: boolean;
   handleBoxClick(event: React.MouseEvent<HTMLButtonElement>): void;
 };
 

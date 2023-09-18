@@ -12,6 +12,7 @@ function Box(props: BoxProps) {
       data-row={props.row}
       data-column={props.column}
       style={{ fontSize: '75px' }}
+      disabled={props.gameOver}
     >
       {props.text}
     </Button>

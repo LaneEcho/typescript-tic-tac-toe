@@ -169,6 +169,7 @@ function Board() {
         content={boardState.board[i]}
         handleBoxClick={handleBoxClick}
         key={i}
+        gameOver={boardState.gameOver}
       />
     );
   }
