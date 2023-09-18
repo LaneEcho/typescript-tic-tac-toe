@@ -18,6 +18,12 @@ function App() {
   const lightTheme = createTheme({
     palette: {
       mode: 'light',
+      // primary: {
+      // main: '#880E4F',
+      // light: '#7C4DFF',
+      // dark: '#311B92',
+      // contrastText: '#fff',
+      // },
     },
   });
 
@@ -25,6 +31,11 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
+      primary: {
+        main: '#69F0AE',
+        dark: '#E040FB',
+        contrastText: '#000',
+      },
     },
   });
 

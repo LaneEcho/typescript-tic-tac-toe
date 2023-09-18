@@ -32,11 +32,11 @@ body {
 }
 
 .box.text-x {
-  color: red; /* Change the color for "X" */
+  color: #e040fb;
 }
 
 .box.text-o {
-  color: blue; /* Change the color for "O" */
+  color: #00e676;
 }
 
 .resetButton {
