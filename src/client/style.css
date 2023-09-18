@@ -31,6 +31,14 @@ body {
   width: 9rem;
 }
 
+.box.text-x {
+  color: red; /* Change the color for "X" */
+}
+
+.box.text-o {
+  color: blue; /* Change the color for "O" */
+}
+
 .resetButton {
   top: 50%;
   left: 35%;
