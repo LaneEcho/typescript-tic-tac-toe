@@ -49,9 +49,16 @@ body {
   left: 40%;
 }
 
-/* iPhone small screen */
+/* screen less than 480px */
 @media only screen and (max-width: 480px) {
   html {
     font-size: 12px;
+  }
+}
+
+/* screen greater than 480px and less than 768 */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 20px;
   }
 }
