@@ -187,7 +187,12 @@ function Board() {
           iconMapping={{
             success: <EmojiEventsIcon fontSize="inherit" />,
           }}
-          style={{ justifyContent: 'center' }}
+          style={{
+            justifyContent: 'center',
+            backgroundColor:
+              boardState.currentPlayer === 'X' ? '#00bfa5' : '#512da8',
+            color: boardState.currentPlayer === 'X' ? '#000' : '#fff',
+          }}
         >
           {boardState.message}
         </Alert>
