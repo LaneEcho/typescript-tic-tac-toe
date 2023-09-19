@@ -56,9 +56,18 @@ body {
   }
 }
 
-/* screen greater than 480px and less than 768 */
+/* tablet portrait */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   html {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  html {
+    font-size: 14px;
+  }
+  #root {
+    margin-bottom: 1rem;
   }
 }
