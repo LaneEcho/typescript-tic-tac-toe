@@ -199,7 +199,13 @@ function Board() {
           iconMapping={{
             info: <WavingHandIcon fontSize="inherit" />,
           }}
-          style={{ justifyContent: 'center', width: '100%' }}
+          style={{
+            justifyContent: 'center',
+            width: '100%',
+            backgroundColor:
+              boardState.currentPlayer === 'X' ? '#512da8' : '#00bfa5',
+            color: boardState.currentPlayer === 'X' ? '#fff' : '#000',
+          }}
         >
           {boardState.message}
         </Alert>

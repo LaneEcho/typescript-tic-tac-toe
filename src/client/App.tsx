@@ -14,7 +14,6 @@ function App() {
   // State to manage the current theme mode
   const [darkMode, setDarkMode] = useState(false);
 
-  // Create a light theme
   const lightTheme = createTheme({
     palette: {
       mode: 'light',
@@ -26,7 +25,6 @@ function App() {
     },
   });
 
-  // Create a dark theme
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -38,7 +36,7 @@ function App() {
     },
   });
 
-  // Toggle the theme mode
+  // Toggle the theme
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
