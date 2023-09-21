@@ -19,8 +19,8 @@ function Box(props: BoxProps) {
       disabled={props.gameOver}
       sx={{
         '&.Mui-disabled': {
-          color: '#512da8',
-          border: '1px solid #512da8',
+          color: '#8E24AA',
+          border: '1px solid #8E24AA',
         },
       }}
     >
