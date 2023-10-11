@@ -19,7 +19,7 @@ function App() {
       mode: 'light',
       primary: {
         main: '#8E24AA',
-        dark: '#4A148C',
+        dark: 'pink',
         contrastText: '#fff',
       },
     },
